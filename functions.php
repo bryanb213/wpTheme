@@ -8,3 +8,9 @@ function uniFiles() {
 }
 // before WP moves on run these functions
 add_action('wp_enqueue_scripts', 'uniFiles');
+
+function uniFeatures(){
+    add_theme_support( 'title-tag' ); // So bookmark can have titles according to their pages
+}
+
+add_action('after_setup_theme', 'uniFeatures');
