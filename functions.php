@@ -11,6 +11,9 @@ add_action('wp_enqueue_scripts', 'uniFiles');
 
 function uniFeatures(){
     add_theme_support( 'title-tag' ); // So bookmark can have titles according to their pages
+    register_nav_menu( 'headerMenuLocation', 'header menu' );
+    register_nav_menu( 'footerMenuLocation1', 'footer menu1' );
+    register_nav_menu( 'footerMenuLocation2', 'footer menu2' );
 }
 
 add_action('after_setup_theme', 'uniFeatures');

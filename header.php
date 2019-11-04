@@ -1,13 +1,14 @@
 <!-- global header -->
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
     <?php wp_head(); ?>
-    <meta charset="UTF-8">
+    <meta charset="<?php bloginfo('charset') ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 </head>
-<body>
+<!-- shows you class name in console -->
+<body <?php body_class(); ?>> 
 <header class="site-header">
     <div class="container">
       <h1 class="school-logo-text float-left"><a href="<?php echo home_url( '' ); ?>"><strong>Fictional</strong> University</a></h1>
@@ -15,8 +16,16 @@
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
       <div class="site-header__menu group">
         <nav class="main-navigation">
+        <!-- <?php wp_nav_menu(array(
+          'theme_location' => 'headerMenuLocation'
+        )) ?> */ -->
+
+
+
           <ul>
-            <li><a href="<?php echo site_url( '/index.php/about-us' ); ?>">About Us</a></li>
+            <!-- the 0 means look up the current page -->
+            <!-- logic to amke nav item yellow even in its child pages -->
+            <li <?php if(is_page('about-us') or wp_get_post_parent_id(0)== 20 )echo 'class="current-menu-item"' ?> ><a href="<?php echo site_url( '/index.php/about-us' ); ?>">About Us</a></li>
             <li><a href="#">Programs</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">Campuses</a></li>
