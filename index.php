@@ -24,6 +24,7 @@ get_header(); ?>
       </div>
 
       <div class="generic-content">
+        <!-- the_content() shows all content and the_excerpt() tak -->
         <?php the_excerpt(); ?>
         <p><a class="btn btn--blue" href="<?php the_permalink(); ?>">Continue reading &raquo;</a></p>
       </div>
