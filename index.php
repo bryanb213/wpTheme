@@ -31,7 +31,10 @@ get_header(); ?>
 
     </div>
   <?php }
+  //adds link to next couple of posts
+  echo paginate_links();
 ?>
+
 </div>
 
 <?php get_footer();

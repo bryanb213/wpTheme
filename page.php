@@ -1,4 +1,5 @@
 <?php
+//template of a new page
 
   get_header();
 
