@@ -15,11 +15,12 @@
         <div class="full-width-split__inner">
             <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
             <?php
+            //GETTING EVENT POST
             $homepageEvent = new WP_Query(array(
                 'post_type' => 'event',
                 'posts_per_page' => 2
             ));
-
+            
             while ($homepageEvent->have_posts()) {
                 $homepageEvent->the_post(); ?>
 
@@ -38,7 +39,7 @@
             ?>
 
 
-            <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
+            <p class="t-center no-margin"><a href="<?php echo site_url('/index.php/event'); ?>" class="btn btn--blue">View All Events</a></p>
 
         </div>
     </div>

@@ -10,13 +10,7 @@ get_header(); ?>
 
         <!-- IF IT'S A CATEGORY SHOW IT IN BANNERR ELSE SHOW THE AUTHOR NAME -->
         <!-- OR the_archive_title() can do it for everything omnth day category n author -->
-        <h1 class="page-banner__title"><?php if (is_category()) {
-                                            single_cat_title();
-                                        }
-                                        if (is_author()) {
-                                            echo 'Post by ';
-                                            the_author();
-                                        } ?></h1>
+        <h1 class="page-banner__title"><?php the_archive_title() ?></h1>
         <div class="page-banner__intro">
             <!--  -->
             <p><?php the_archive_description() ?></p>
