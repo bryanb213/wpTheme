@@ -24,8 +24,8 @@
                 'meta_key' => 'event_date',
                 'orderby' => 'meta_value_num',
                 'order' => 'ASC',
-                //filter only upcoming post
-                'meta_Query' => array(
+                //filter only past post
+                'meta_query' => array(
                     array(
                         'key' => 'event_date',
                         'compare' => '>=',
