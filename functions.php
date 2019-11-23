@@ -17,3 +17,24 @@ function uniFeatures(){
 }
 
 add_action('after_setup_theme', 'uniFeatures');
+
+function uni_adjust_queries($query){
+    //if not an admin use query for event and makes sure it only touches events(because it does it to blogs too)
+    //is main query does not manipulate other queries
+    $today = date('Ymd');
+    if(!is_admin() AND is_post_type_archive('event') AND $query-> is_main_query()){
+        $query->set('meta-key', 'event-date');
+        $query->set('order_by', 'meta_value_num');
+        $query->set('order', 'ASC');
+        $query->set('meta_query', array(
+            array(
+                'key' => 'event_date',
+                'compare' => '>=',
+                'value' => $today,
+                'type' => 'numeric'
+            )
+            ));
+    }
+}
+
+add_action('pre_get_posts', 'uni_adjust_queries');
