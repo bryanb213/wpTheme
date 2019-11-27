@@ -19,6 +19,14 @@ function uniFeatures(){
 add_action('after_setup_theme', 'uniFeatures');
 
 function uni_adjust_queries($query){
+    // so we won't manipulate any secondary custom queries only the main default URL query
+    if(!is_admin()  AND is_post_type_archive( 'program') AND $query->is_main_query()){
+        $query->set('orderby', 'title');
+        $query->set('order', 'ASC');
+        //-1 means show everything
+        $query->set('posts_per_page', -1);
+    }
+
     //if not an admin use query for event and makes sure it only touches events(because it does it to blogs too)
     //is main query does not manipulate other queries
     $today = date('Ymd');
